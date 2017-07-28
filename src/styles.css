@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+	font: 400 .875em/1.75 'Poppins', Arial, Helvetica, sans-serif;
+	color: #878787;
+}
+
+h3 {
+  color: #676767;
+}

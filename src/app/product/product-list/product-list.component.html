@@ -1,0 +1,10 @@
+
+<div style="margin: 50 auto">
+  <div style="width: 320px; float: left; margin-bottom: 30px;" *ngFor="let product of products$ | async">
+    <img [src]="product.images[0].srcMedium()">
+    <h3>{{product.name}}</h3>
+    <div [innerHTML]="product.priceHtml"></div>
+    <div style="margin-top: 15px; text-align: center"><button md-raised-button><md-icon>shopping_cart</md-icon> Add to Cart</button></div>
+  </div>
+</div>
+
