@@ -1,10 +1,24 @@
 
-<div style="margin: 50 auto">
-  <div style="width: 320px; float: left; margin-bottom: 30px;" *ngFor="let product of products$ | async">
-    <img [src]="product.images[0].srcMedium()">
-    <h3>{{product.name}}</h3>
-    <div [innerHTML]="product.priceHtml"></div>
-    <div style="margin-top: 15px; text-align: center"><button md-raised-button><md-icon>shopping_cart</md-icon> Add to Cart</button></div>
-  </div>
-</div>
+<div class="container">
 
+  <div class="product-box" *ngFor="let product of products$ | async">
+    <a href="#"><img [src]="product.images[0].srcMedium()"></a>
+    <div class="content">
+      <a href="#"><h3>{{product.name}}</h3></a>
+      <div [innerHTML]="product.priceHtml" class="price"></div>
+    </div>
+    <div class="actions">
+      <div class="action">
+        <span mdTooltip="Add to cart" mdTooltipPosition="before">
+          <a href="#"><md-icon>shopping_cart</md-icon></a>
+        </span>
+      </div>
+      <div class="action">
+        <span mdTooltip="View product" mdTooltipPosition="before">
+          <a href="#"><md-icon>search</md-icon></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
