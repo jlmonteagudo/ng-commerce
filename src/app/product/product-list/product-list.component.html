@@ -1,24 +1,3 @@
-
 <div class="container">
-
-  <div class="product-box" *ngFor="let product of products$ | async">
-    <a href="#"><img [src]="product.images[0].srcMedium()"></a>
-    <div class="content">
-      <a href="#"><h3>{{product.name}}</h3></a>
-      <div [innerHTML]="product.priceHtml" class="price"></div>
-    </div>
-    <div class="actions">
-      <div class="action">
-        <span mdTooltip="Add to cart" mdTooltipPosition="before">
-          <a href="#"><md-icon>shopping_cart</md-icon></a>
-        </span>
-      </div>
-      <div class="action">
-        <span mdTooltip="View product" mdTooltipPosition="before">
-          <a href="#"><md-icon>search</md-icon></a>
-        </span>
-      </div>
-    </div>
-  </div>
-
+  <product-display *ngFor="let product of products$ | async" [product]="product"></product-display>
 </div>

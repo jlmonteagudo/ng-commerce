@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
 
+  private DEFAULT_MAX_PRODUCTS: number = 10;
   private URL_PRODUCTS: string;
   private ENTITY_NAME: string = 'products';
 
@@ -18,8 +19,12 @@ export class ProductService {
     this.URL_PRODUCTS = config.apiEndpoint + this.ENTITY_NAME;
   }
 
-  getListProducts(): Observable<Product[]> {
+  getListProducts(maxProducts = this.DEFAULT_MAX_PRODUCTS): Observable<Product[]> {
     return this.http.get(this.URL_PRODUCTS).map(Product.fromJsonArray);
   }
 
+  getListProductsByCategory(categoryId?: number, maxProducts = this.DEFAULT_MAX_PRODUCTS): Observable<Product[]> {
+    return this.http.get(this.URL_PRODUCTS + `?category=${categoryId}&per_page=${maxProducts}`).map(Product.fromJsonArray);
+  }
+  
 } 

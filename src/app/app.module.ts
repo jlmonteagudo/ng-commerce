@@ -1,6 +1,8 @@
+import { ProductDisplayComponent } from './product/product-display/product-display.component';
 import { AuthInterceptor } from './services/interceptors/AuthInterceptor';
 import { APP_CONFIG_SERVICE, DATA_APP_CONFIG } from './config/app.config.service';
 import { ProductService } from './services/product/product.service';
+import { CategoryService } from './services/category/category.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,9 +15,11 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductListComponent },
   { path: '**', component: NotFoundComponent }
 ];
@@ -25,7 +29,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NotFoundComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductDisplayComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ const appRoutes: Routes = [
   providers: [ 
     { provide: APP_CONFIG_SERVICE, useValue: DATA_APP_CONFIG },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    ProductService
+    ProductService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

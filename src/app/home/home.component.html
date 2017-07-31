@@ -1,0 +1,5 @@
+
+<div class="home-container" *ngFor="let category of categories$ | async">
+  <h2>{{category.name}}</h2>
+  <product-list [category]="category" [maxProducts]="5"></product-list>
+</div>

@@ -2,10 +2,20 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
-	font: 400 .875em/1.75 'Poppins', Arial, Helvetica, sans-serif;
+	/*font: 400 .875em/1.75 'Poppins', Arial, Helvetica, sans-serif;*/
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
 	color: #878787;
 }
 
-h3 {
+h1, h2, h3, h4, h5, h6 {
   color: #676767;
+	font-weight: 100;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.4em;
 }
