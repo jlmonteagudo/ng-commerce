@@ -1,4 +1,4 @@
-import { ProductDisplayComponent } from './product/product-display/product-display.component';
+import { ProductItemComponent } from './product/product-item/product-item.component';
 import { AuthInterceptor } from './services/interceptors/AuthInterceptor';
 import { APP_CONFIG_SERVICE, DATA_APP_CONFIG } from './config/app.config.service';
 import { ProductService } from './services/product/product.service';
@@ -16,10 +16,12 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
+import { ProductShowComponent } from './product/product-show/product-show.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'products/:id', component: ProductShowComponent },
   { path: 'products', component: ProductListComponent },
   { path: '**', component: NotFoundComponent }
 ];
@@ -30,8 +32,9 @@ const appRoutes: Routes = [
     AppComponent,
     NotFoundComponent,
     ProductListComponent,
-    ProductDisplayComponent,
-    HomeComponent
+    ProductItemComponent,
+    HomeComponent,
+    ProductShowComponent
   ],
   imports: [
     BrowserModule,

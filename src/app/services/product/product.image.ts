@@ -18,7 +18,7 @@ export class ProductImage {
   }
 
   srcLarge(): string {
-    return this.srcSize('-1024x1024');
+    return this.srcSize('-600x600');
   }
   
   private srcSize(size: string): string {

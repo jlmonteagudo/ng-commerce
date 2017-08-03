@@ -24,7 +24,11 @@ export class ProductService {
   }
 
   getListProductsByCategory(categoryId?: number, maxProducts = this.DEFAULT_MAX_PRODUCTS): Observable<Product[]> {
-    return this.http.get(this.URL_PRODUCTS + `?category=${categoryId}&per_page=${maxProducts}`).map(Product.fromJsonArray);
+    return this.http.get(`${this.URL_PRODUCTS}?category=${categoryId}&per_page=${maxProducts}`).map(Product.fromJsonArray);
+  }
+  
+  getProduct(productId: number): Observable<Product> {
+    return this.http.get(`${this.URL_PRODUCTS}/${productId}`).map(Product.fromJson);
   }
   
 } 

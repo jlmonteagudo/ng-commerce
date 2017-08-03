@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div *ngIf = "product$ | async as product else loading">
+
+      <div class="product-images-container">
+        <img [src]="product.images[0].srcLarge()">
+      </div>
+
+      <div class="product-content-container">
+        <h1>{{product.name}}</h1>
+        
+        <div [innerHTML]="product.shortDescription" class="product-description"></div>
+
+        <div class="availability">
+          <label>Availability:</label>
+          <span class="in-stock" *ngIf="product.inStock">In stock</span>
+          <span class="out-stock" *ngIf="!product.inStock">Out of stock</span>
+        </div>
+
+        <div [innerHTML]="product.priceHtml" class="price"></div>
+        <div class="quantity" style="height: 30px;"><input type="number" name="quantity" min="1" max="999" maxlength="3"></div>
+        <button md-button>Add to cart</button>
+      </div>
+    
+  </div>
+
+  <ng-template #loading>
+    Loading...
+  </ng-template>
+
+
+</div>

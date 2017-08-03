@@ -1,0 +1,87 @@
+.container {
+  max-width: 1200px;
+  border: 0px solid #eee;
+  margin: 50px auto;
+}
+
+.product-images-container {
+  float: left;
+  max-width: 570px;
+  min-width: 270px;
+}
+
+.product-images-container img {
+  width: 100%;
+}
+
+.product-content-container {
+  float: left;
+  max-width: 600px;
+  min-width: 300px;
+  margin-top: -10px;
+  padding-left: 30px;
+}
+
+.product-description {
+  text-align: justify;
+  line-height: 26px;
+}
+
+.availability {
+  margin-top: 40px;
+  font-size: .9em;
+  color: black;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 30px;
+}
+
+.availability .in-stock {
+  font-weight: bolder;
+  color: #5cb85c;
+}
+
+.availability .in-stock:before {
+    font-family: 'FontAwesome';
+    content: "\f05d";
+    font-weight: normal;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.availability .out-stock {
+  font-weight: bolder;
+  color: red;
+}
+
+.availability .out-stock:before {
+    font-family: 'FontAwesome';
+    content: "\f05c";
+    font-weight: normal;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.price {
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+  float: left;
+  width: 25%;
+}
+
+.quantity {
+  margin-top: 17px;
+  float: left;
+  width: 25%;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input[type=number] {
+  font-size:36px;
+  width: 80px;
+}
+

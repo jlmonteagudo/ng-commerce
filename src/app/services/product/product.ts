@@ -7,11 +7,14 @@ export class Product {
     public name: string,
     public images: ProductImage[] ,
     public priceHtml: string,
+    public shortDescription: string,
+    public description: string,
+    public inStock: boolean
   ) {}
 
-  static fromJson({id, name, images, price_html}): Product {
+  static fromJson({id, name, images, price_html, short_description, description, in_stock}): Product {
     let productImages: ProductImage[] = ProductImage.fromJsonArray(images);
-    return new Product(id, name, productImages, price_html);
+    return new Product(id, name, productImages, price_html, short_description, description, in_stock);
   }
 
   static fromJsonArray(json: any[]): Product[] {
